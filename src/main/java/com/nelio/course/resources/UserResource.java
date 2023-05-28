@@ -52,7 +52,7 @@ public class UserResource {
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         service.delete(id);
-        
+
         //http response 204 - no content
         return ResponseEntity.noContent().build();
     }
