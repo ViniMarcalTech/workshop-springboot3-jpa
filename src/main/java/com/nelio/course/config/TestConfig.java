@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.nelio.course.entities.Category;
 import com.nelio.course.entities.Order;
 import com.nelio.course.entities.OrderItem;
+import com.nelio.course.entities.Payment;
 import com.nelio.course.entities.Product;
 import com.nelio.course.entities.User;
 import com.nelio.course.entities.enums.OrderStatus;
@@ -85,8 +86,9 @@ public class TestConfig implements CommandLineRunner{
 
         orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
 
-
-        
+        Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+        o1.setPayment(pay1);
+        orderRepository.save(o1);
     }
 
     
